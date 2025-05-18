@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import Loader from './Screens/Components/Loader/Index';
 import Bienvenue from './Screens/Pages/Bienvenue/Index';
 import Connexion from './Screens/Pages/Connexion/Index';
 import Annonces from './Screens/Pages/Annonces/Index';
@@ -14,22 +15,28 @@ import Materiel from './Screens/Pages/Materiel/Index';
 import Profile from './Screens/Pages/Profile/Index';
 import Support from './Screens/Pages/Support/Index';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false); 
-    }, 2000);
+    setTimeout(() => setIsLoading(false), 2000);
   }, []);
 
   if (isLoading) {
     return <Loader />;
   }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Bienvenue">
+      <Stack.Navigator
+        initialRouteName="Connexion"
+        screenOptions={{
+          animation: 'fade',
+          headerShown: false,
+        }}
+      >
         <Stack.Screen name="Bienvenue" component={Bienvenue} />
         <Stack.Screen name="Connexion" component={Connexion} />
         <Stack.Screen name="Annonces" component={Annonces} />
