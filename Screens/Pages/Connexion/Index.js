@@ -96,9 +96,9 @@ export default function Connexion() {
           </View>
           {passwordError ? <Text style={styles.errorText}>{passwordError}</Text> : null}
 
-          <TouchableOpacity>
-            <Text style={styles.forgotPassword}>Mot de Passe Oublié ?</Text>
-          </TouchableOpacity>
+         <TouchableOpacity onPress={() => navigation.navigate('MotDePasseOublie')}>
+  <Text style={styles.forgotPassword}>Mot de Passe Oublié ?</Text>
+</TouchableOpacity>
         </View>
 
         <TouchableOpacity style={styles.button} onPress={onLoginPress}>

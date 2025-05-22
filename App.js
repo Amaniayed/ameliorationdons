@@ -14,6 +14,8 @@ import Inscription from './Screens/Pages/Inscription/Index';
 import Materiel from './Screens/Pages/Materiel/Index';
 import Profile from './Screens/Pages/Profile/Index';
 import Support from './Screens/Pages/Support/Index';
+import MotDePasseOublie from './Screens/Pages/Connexion/MotDePasseOublie';
+import VerifyCode from './Screens/Pages/Connexion/VerifyCode';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +50,8 @@ export default function App() {
         <Stack.Screen name="Materiel" component={Materiel} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Support" component={Support} />
+        <Stack.Screen name="MotDePasseOublie" component={MotDePasseOublie} />
+        <Stack.Screen name="VerifyCode" component={VerifyCode} />
       </Stack.Navigator>
     </NavigationContainer>
   );
